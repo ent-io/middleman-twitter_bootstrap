@@ -42,7 +42,7 @@ set :markdown_engine, :redcarpet
 # end
 
 
-page "/source/new.html", :layout => "template"
+page '/source/new.html', :layout => 'template'
 
 
 ###
