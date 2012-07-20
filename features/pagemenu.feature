@@ -14,3 +14,15 @@ Feature: In order to output static html for a page
     Given the layout configuration is properly created 
     When I go to "config.rb"
     Then I should see "page '/source/new.html', :layout => 'template'"
+  
+  Scenario: Checking template for content
+    Given the Server is running at "middleman-twitter_bootstrap"
+    And the file "source/new.html" has the contents
+
+	"""	
+         Welcome to EntIO LLC
+
+	"""
+   When I go to "/new.html"
+   Then I should see "Welcome to EntIO LLC"
+
