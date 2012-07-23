@@ -41,6 +41,25 @@ set :markdown_engine, :redcarpet
 #   @which_fake_page = "Rendering a fake page with a variable"
 # end
 
+
+page '/source/new.html', :layout => 'template'
+
+
+###
+#Sitemaps
+###
+
+
+ready do
+  sitemap.pages.group_by {|p| p.data["source"] }.each do |source, pages|
+    page "/source/#{source}.html", :proxy => "new.html" do
+      @source = source
+      @pages = pages
+    end
+  end
+end
+
+
 ###
 # Helpers
 ###
